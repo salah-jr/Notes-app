@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'NotesController@index');
+
+Auth::routes();
+
+Route::resource('notes', 'NotesController');
+
+Route::get('/dashboard', 'DashboardController@index')->name('home');
